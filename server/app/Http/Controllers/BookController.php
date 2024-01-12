@@ -16,6 +16,20 @@ class BookController extends Controller
     {
         //
     }
+    public function getByGenre($genre_id){
+        $books=Book::get()->where('genre_id',$genre_id);
+
+        if(count($books)==0){
+            return response()->json('Book with this genre does not exist!');
+        }
+
+        $my_books=array();
+        foreach($books as $book){
+            array_push($my_books,new BookResource($book));
+        }
+
+        return $my_books;
+    }
 
     /**
      * Show the form for creating a new resource.
