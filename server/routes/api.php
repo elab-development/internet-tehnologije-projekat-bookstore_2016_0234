@@ -25,9 +25,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('genres', GenreController::class);
 Route::resource('books', BookController::class);
 Route::resource('users', UserController::class);
+Route::delete('/users/{user}', [UserController::class, 'destroy']);
 
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
+
 
 Route::get('/books/genre/{id}',[BookController::class,'getByGenre']);
