@@ -85,7 +85,6 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        $book = Book::findOrFail($id);
         return response()->json(['book' => $book]);
     }
 
@@ -120,7 +119,6 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        $book = Book::findOrFail($id);
         $book->delete();
         return response()->json(['message' => 'Book deleted successfully']);
     }

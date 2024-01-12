@@ -14,7 +14,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $genres = Genre::all();
+        return response()->json(['genres' => $genres]);
     }
 
     /**
@@ -46,7 +47,7 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        //
+        return response()->json(['genre' => $genre]);
     }
 
     /**
@@ -80,6 +81,7 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        return response()->json(['message' => 'Genre deleted successfully']);
     }
 }
