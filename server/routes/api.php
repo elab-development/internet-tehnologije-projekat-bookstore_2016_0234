@@ -18,18 +18,20 @@ use App\Http\Controllers\API\AuthController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 Route::resource('genres', GenreController::class);
 Route::resource('books', BookController::class);
 Route::resource('users', UserController::class);
-Route::delete('/users/{user}', [UserController::class, 'destroy']);
 
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
-Route::post('/logout', [AuthController::class, 'logout']);
-
 
 Route::get('/books/genre/{id}',[BookController::class,'getByGenre']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::delete('/users/{user}', [UserController::class, 'destroy']);
+});
