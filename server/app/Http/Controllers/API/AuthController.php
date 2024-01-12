@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 
 
 class AuthController extends Controller
@@ -57,6 +59,29 @@ class AuthController extends Controller
         }
 
         return response()->json('Goodbye. You successfully logged out!');
+    }
+
+
+
+    
+    public function resetPassword(Request $request)
+    {
+    $request->validate([
+        'email' => 'required|email',
+        'token' => 'required',
+        'password' => 'required|confirmed|min:8',
+    ]);
+
+    $response = Password::reset($request->only('email', 'password', 'password_confirmation', 'token'), function ($user, $password) {
+        $user->forceFill([
+            'password' => bcrypt($password),
+            'remember_token' => Str::random(60),
+        ])->save();
+    });
+
+    return $response == Password::PASSWORD_RESET
+        ? response()->json(['message' => 'Password reset successful'], 200)
+        : response()->json(['message' => 'Password reset failed'], 400);
     }
 
 }

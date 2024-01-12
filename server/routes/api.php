@@ -35,3 +35,6 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::delete('/users/{user}', [UserController::class, 'destroy']);
 });
+
+Route::post('/reset-password', [AuthController::class, 'resetPassword']);
+
