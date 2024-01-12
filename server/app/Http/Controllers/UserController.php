@@ -44,7 +44,27 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+        ]);
+    
+        // Check if validation fails
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
+        $user = User::create([
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'userRole' => 'user',
+        ]);
+    
+        
+        return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
     }
 
     /**
