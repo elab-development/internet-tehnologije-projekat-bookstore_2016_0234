@@ -12,13 +12,29 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users=User::all();
+        // Define default values for pagination and filtering
+        $perPage = $request->input('per_page', 10); // Number of items per page
+        $sortBy = $request->input('sort_by', 'id'); // Column to sort by
+        $sortDesc = $request->input('sort_desc', false); // Sort in descending order
+        $filter = $request->input('filter', ''); // Filtering criteria
 
-        if(count($users)==0){
-            return response()->json('There is no registered users in the system!');
+        $query = User::query();
+
+        //filtering
+        if ($filter) {
+            $query->where('firstname', 'like', "%$filter%")
+                  ->orWhere('email', 'like', "%$filter%");
         }
+
+        // sorting
+        $query->orderBy($sortBy, $sortDesc ? 'desc' : 'asc');
+
+        // Pagination
+        $users = $query->paginate($perPage);
+
+        return response()->json($users);
     }
 
     /**
