@@ -14,7 +14,7 @@ class Book extends Model
         'releaseYear',
         'description',
         'cover_image',
-        'genre_id',
+        'genre_id', 
         'page_count',
         'price',
         'available',
