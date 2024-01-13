@@ -33,11 +33,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::delete('/users/{user}', [UserController::class, 'destroy']);
 });
 
 Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 
 Route::middleware(['auth', 'userRole:admin'])->group(function () {
-    
+    Route::delete('/admin/users/{user}', [UserController::class, 'destroy']);
 });
