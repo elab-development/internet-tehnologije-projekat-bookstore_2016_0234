@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import {Shop} from './pages/Shop';
+import {Cart} from './pages/Cart';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" exact Component={Home}/>
           <Route path="/contact" exact Component={Contact}/>
           <Route path="/shop" exact Component={Shop}/>
+          <Route path="/cart" exact Component={Cart}/>
         </Routes>
         <Footer/>
       </Router>
