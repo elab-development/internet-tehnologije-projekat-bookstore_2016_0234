@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Login.css'; 
 
-const Login = () => {
+function Login  () {
   return (
     <div className="home">
       <div className="headerContainer">

@@ -18,6 +18,7 @@ function App() {
           <Route path="/contact" exact Component={Contact}/>
           <Route path="/shop" exact Component={Shop}/>
           <Route path="/cart" exact Component={Cart}/>
+          <Route path="/login" exact Component={Login}/>
         </Routes>
         <Footer/>
       </Router>
