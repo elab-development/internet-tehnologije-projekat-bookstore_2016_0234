@@ -1,9 +1,10 @@
 import './App.css';
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import {BrowserRouter as Router,Route, Routes } from 'react-router-dom'
 import Contact from './pages/Contact';
 import Home from './pages/Home'
-
+import {Shop} from './pages/Shop';
 
 function App() {
   return (
@@ -13,9 +14,9 @@ function App() {
         <Routes>
           <Route path="/" exact Component={Home}/>
           <Route path="/contact" exact Component={Contact}/>
-         
+          <Route path="/shop" exact Component={Shop}/>
         </Routes>
-        
+        <Footer/>
       </Router>
     </div>
   );
