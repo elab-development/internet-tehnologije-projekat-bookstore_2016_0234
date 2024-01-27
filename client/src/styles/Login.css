@@ -6,7 +6,7 @@
   
   .login .leftSide {
     height: 100%;
-    flex: 50%;
+    flex: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,7 +17,7 @@
     flex-direction: column;
     width: auto;
     height: auto;
-    padding: 30px;
+    padding: 80px;
   }
   
   .login .leftSide form input {
@@ -26,7 +26,7 @@
     border: none;
     border-bottom: 1px solid #121619;
     color: black;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   
   .login .leftSide form button {
@@ -37,7 +37,26 @@
     color: whitesmoke;
     font-size: 15px;
     cursor: pointer;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    transition: color 0.3s ease-in-out;
+    border-radius: 8px;
   }
+
+  .login .leftSide form button.signup,
+  .login .leftSide form button.forgot {
+    background-color: transparent;
+    color: #8f8f8f;
+    margin-right: 150px;
+    font-size: smaller;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .login .leftSide form button.signup:hover,
+  .login .leftSide form button.forgot:hover {
+    color: #1d1d1d; 
+}
   
   .login .rightSide {
     height: 100%;

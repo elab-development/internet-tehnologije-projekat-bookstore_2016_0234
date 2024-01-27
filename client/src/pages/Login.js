@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import '../styles/Login.css';
-import LoginImage from '../assets/homebackground.jpg'; 
+import LoginImage from '../assets/login.jpg'; 
 
 function Login  () {
     // State to manage form inputs
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const handleSignUp = () => {};
+  const handleForgotPassword = () => {};
 
   // Function to handle login
   //const handleLogin = (event) => {
@@ -17,7 +19,7 @@ function Login  () {
   return (
     <div className="login">
       <div className="leftSide">
-        <form >
+        <form>
           <label htmlFor="username">Username</label>
           <input
             name="username"
@@ -34,6 +36,14 @@ function Login  () {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+           <div>
+            <button type="button" className="signup" onClick={handleSignUp}>
+              Sign Up
+            </button>
+            <button type="button" className="forgot" onClick={handleForgotPassword}>
+              Forgot Password
+            </button>
+          </div>
           <button type="submit">Log In</button>
         </form>
       </div>
