@@ -11,8 +11,8 @@ function Navbar() {
 
         </div>
         <div className="desnaStrana">
-            {/* <Link to="/">HOME</Link>
-            <Link to="/shop">SHOP</Link> */}
+            <Link to="/">HOME</Link>
+            
             <Link to="/contact">CONTACT</Link>
             
         </div>
