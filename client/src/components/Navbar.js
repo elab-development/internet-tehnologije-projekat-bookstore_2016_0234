@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from '../assets/logo.png'
+import {Link} from 'react-router-dom'
 
 function Navbar() {
   return (
@@ -9,7 +10,10 @@ function Navbar() {
 
         </div>
         <div className="desnaStrana">
-           
+            <Link to="/">HOME</Link>
+            <Link to="/shop">SHOP</Link>
+            <Link to="/contact">CONTACT</Link>          
+            
         </div>
     </div>
   )
