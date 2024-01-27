@@ -7,10 +7,12 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import {Shop} from './pages/Shop';
 import {Cart} from './pages/Cart';
+import { ShopContextProvider } from './context/shop-context';
 
 function App() {
   return (
     <div className="App">
+      <ShopContextProvider>
        <Router>
         <Navbar />
         <Routes>
@@ -22,6 +24,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
+      </ShopContextProvider>
     </div>
   );
 }
