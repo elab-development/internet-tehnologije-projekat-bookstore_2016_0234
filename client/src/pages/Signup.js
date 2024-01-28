@@ -14,7 +14,8 @@ function Signup() {
       <div className="signup-container">
         <form>
           <h1>Sign Up</h1>
-          <label htmlFor="email">Username</label>
+          <label htmlFor="email">Email
+          </label>
           <input
             name="Email"
             placeholder="Enter email..."
