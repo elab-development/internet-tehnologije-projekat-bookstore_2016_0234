@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import '../styles/Login.css';
 import LoginImage from '../assets/login.jpg'; 
+import {Link} from 'react-router-dom';
+
 
 function Login  () {
     // State to manage form inputs
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const handleSignUp = () => {};
-  const handleForgotPassword = () => {};
 
   // Function to handle login
   //const handleLogin = (event) => {
@@ -19,7 +19,9 @@ function Login  () {
   return (
     <div className="login">
       <div className="leftSide">
+        
         <form>
+          <h1>Log in</h1>
           <label htmlFor="username">Username</label>
           <input
             name="username"
@@ -37,11 +39,15 @@ function Login  () {
             onChange={(e) => setPassword(e.target.value)}
           />
            <div>
-            <button type="button" className="signup" onClick={handleSignUp}>
-              Sign Up
+            <button type="button" className="signup">
+              <Link to="/Signup">
+                Sign Up
+              </Link>
             </button>
-            <button type="button" className="forgot" onClick={handleForgotPassword}>
-              Forgot Password
+            <button type="button" className="forgot">
+              <Link to="/forgot-password">
+                Forgot Password
+              </Link>
             </button>
           </div>
           <button type="submit">Log In</button>

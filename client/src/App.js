@@ -5,6 +5,8 @@ import {BrowserRouter as Router,Route, Routes } from 'react-router-dom'
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
+import ForgotPassword from './pages/ForgotPass';
 import {Shop} from './pages/Shop';
 import {Cart} from './pages/Cart';
 import { ShopContextProvider } from './context/shop-context';
@@ -21,6 +23,8 @@ function App() {
           <Route path="/shop" exact Component={Shop}/>
           <Route path="/cart" exact Component={Cart}/>
           <Route path="/login" exact Component={Login}/>
+          <Route path="/signup" exact Component={Signup}/>
+          <Route path='/forgot-password' exact Component={ForgotPassword}/>
         </Routes>
         <Footer/>
       </Router>

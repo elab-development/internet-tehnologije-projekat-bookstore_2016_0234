@@ -1,10 +1,18 @@
-.login {
+.forgot-password {
     width: 100%;
     height: 90vh;
     display: flex;
   }
   
-  .login .leftSide {
+  .forgot-password .leftSide {
+    height: 100%;
+    flex: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .forgot-password .rightSide{
     height: 100%;
     flex: 30%;
     display: flex;
@@ -12,15 +20,25 @@
     justify-content: center;
   }
 
-  .login .leftSide h1 {
+  .forgot-password .rightSide h1 {
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
     font-weight: 10;
     font-size: 50px;
     margin-left: 30px;
+    text-align: center;
   }
   
-  .login .leftSide form {
+  .forgot-password .rightSide p {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    font-weight: 10;
+    font-size: 15px;
+    padding-left: 80px;
+    text-align: left;
+  }
+
+  .forgot-password .rightSide form {
     display: flex;
     flex-direction: column;
     width: auto;
@@ -28,7 +46,12 @@
     padding: 80px;
   }
   
-  .login .leftSide form input {
+  .forgot-password .rightSide form label {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .forgot-password .rightSide form input {
     height: 40px;
     width: 80%;
     border: none;
@@ -37,7 +60,7 @@
     margin-bottom: 10px;
   }
   
-  .login .leftSide form button {
+  .forgot-password .rightSide form button {
     width: 140px;
     height: 40px;
     border: none;
@@ -50,31 +73,11 @@
     transition: color 0.3s ease-in-out;
     border-radius: 8px;
   }
-
-  .login .leftSide form button.signup,
-  .login .leftSide form button.forgot {
-    background-color: transparent;
-    color: #8f8f8f;
-    margin-right: 150px;
-    font-size: smaller;
-    margin-bottom: 5px;
-    margin-top: 5px;
-  }
-
-  .login .leftSide form button.signup:hover,
-  .login .leftSide form button.forgot:hover {
-    color: #1d1d1d; 
-}
   
-  .login .rightSide {
+  .forgot-password .leftSide {
     height: 100%;
     flex: 50%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
   }
