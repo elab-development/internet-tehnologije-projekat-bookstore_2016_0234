@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Signup.css';
-import SignupImage from '../assets/login.jpg'; // Replace with your signup background image
+import SignupImage from '../assets/signup.jpg'; // Replace with your signup background image
 import { Link } from 'react-router-dom';
 
 function Signup() {
