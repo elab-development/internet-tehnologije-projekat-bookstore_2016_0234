@@ -38,7 +38,9 @@ function Login  () {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-           <div>
+           
+          <button type="submit">Log In</button>
+          <div>
             <button type="button" className="signup">
               <Link to="/Signup">
                 Sign Up
@@ -50,7 +52,6 @@ function Login  () {
               </Link>
             </button>
           </div>
-          <button type="submit">Log In</button>
         </form>
       </div>
       <div className="rightSide" style={{ backgroundImage: `url(${LoginImage})` }}></div>
