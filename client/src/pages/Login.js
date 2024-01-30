@@ -1,44 +1,61 @@
-import React, {useState} from 'react';
+import React, { useRef } from 'react';
 import '../styles/Login.css';
-import LoginImage from '../assets/login.jpg'; 
-import {Link} from 'react-router-dom';
+import LoginImage from '../assets/login.jpg';
+import { Link } from 'react-router-dom';
+import axiosClient from '../axios-client';
+import { UseStateContext } from '../context/user-context';
 
 
-function Login  () {
-    // State to manage form inputs
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+function Login() {
+  // State to manage form inputs
+  //const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
+  const emailRef = useRef();
+  const passRef = useRef();
 
-  // Function to handle login
-  //const handleLogin = (event) => {
-    //event.preventDefault();
-    // Perform your login logic here
-    //console.log('Logging in with username:', username, 'and password:', password);
-    // You can make an API call or perform any authentication logic here
-  //};
+  const { setUser, setToken } = UseStateContext();
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const payload = {
+      email: emailRef.current.value,
+      pass: passRef.current.value
+    }
+    axiosClient.post('/login', payload)
+      .then(({ data }) => {
+        setUser(data.user)
+        setToken(data.token)
+      })
+      .catch(err => {
+        console.log(err);
+        const response = err.response;
+        if (response && response.status === 422) {
+          console.log(response.data.errors);
+        }
+      })
+
+  };
   return (
     <div className="login">
       <div className="leftSide">
-        
-        <form>
+
+        <form onSubmit={handleLogin}>
           <h1>Log in</h1>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="email">Username</label>
           <input
-            name="username"
-            placeholder="Enter username..."
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            ref={emailRef}
+            name="email"
+            placeholder="Enter email..."
+            type="email"
           />
           <label htmlFor="password">Password</label>
           <input
+            ref={passRef}
             name="password"
             placeholder="Enter password..."
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
           />
-           <div>
+          <div>
             <button type="button" className="signup">
               <Link to="/Signup">
                 Sign Up
