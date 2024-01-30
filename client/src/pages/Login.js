@@ -67,7 +67,6 @@ function Login() {
               </Link>
             </button>
           </div>
-          <button type="submit">Log In</button>
         </form>
       </div>
       <div className="rightSide" style={{ backgroundImage: `url(${LoginImage})` }}></div>
