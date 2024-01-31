@@ -14,9 +14,30 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all(); // You can modify this query based on your needs
-        return response()->json(['books' => $books]);
+        $books = Book::all();
+
+    $booksWithImageUrls = $books->map(function ($book) {
+        return [
+            'id' => $book->id,
+            'name' => $book->name,
+            'author' => $book->author,
+            'releaseYear' => $book->releaseYear,
+            'description' => $book->description,
+            'cover_image' => $book->cover_image,
+            'genre_id' => $book->genre_id,
+            'page_count' => $book->page_count,
+            'price' => $book->price,
+            'available' => $book->available,
+            
+        ];
+    });
+
+
+    return response()->json(['books' => $booksWithImageUrls]);
     }
+
+
+    
     public function getByGenre($genre_id){
         $books=Book::get()->where('genre_id',$genre_id);
 
