@@ -15,6 +15,9 @@ export const Cart = () => {
     <div className="cart">
       <div>
         <h1>Items In Your Cart</h1>
+          <button type='button' onSubmit={checkLogin}>
+            Check out
+          </button> 
       </div>
       <div className="cart">
         {PRODUCTS.map((product) => {
