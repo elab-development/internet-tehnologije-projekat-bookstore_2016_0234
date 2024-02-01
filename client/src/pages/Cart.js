@@ -15,7 +15,7 @@ export const Cart = () => {
     <div className="cart">
       <div>
         <h1>Items In Your Cart</h1>
-          <button type='button' onSubmit={checkLogin}>
+          <button type='button'>
             Check out
           </button> 
       </div>
