@@ -1,23 +1,33 @@
 import React from 'react'
 import Logo from '../assets/logo.png'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../styles/navbar.css'
 import { FiShoppingCart } from "react-icons/fi";
+import useResponsiveNavbar from '../additional/useResponsiveNavbar';
+import { TbLayoutNavbarFilled } from "react-icons/tb";
 
 function Navbar() {
+
+  const { isNavbarVisible, toggleNavbar } = useResponsiveNavbar(true, 768);
+
   return (
     <div className="navbar">
-        <div className="levaStrana">
+      <button onClick={toggleNavbar}><TbLayoutNavbarFilled/></button>
+      {isNavbarVisible && (
+        <div className="navbar">
+          <div className="levaStrana">
             <img src={Logo} />
 
-        </div>
-        <div className="desnaStrana">
+          </div>
+          <div className="desnaStrana">
             <Link to="/">HOME</Link>
             <Link to="/shop">SHOP</Link>
             <Link to="/contact">CONTACT</Link>
             <Link to="/cart"><FiShoppingCart size={30} /></Link>
             <Link to="/login">LOGIN</Link>
+          </div>
         </div>
+      )}
     </div>
   )
 }
